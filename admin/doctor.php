@@ -197,7 +197,7 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
             <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text active  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
-                        <a href="./recepcionista.php" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                        <a href="#" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
     <i class="fas fa-procedures me-2"></i>recepcionista
 </a>
 
@@ -212,7 +212,7 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
                         class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
+       
 
         <!-- Contenido de la página -->
         <div id="page-content-wrapper">

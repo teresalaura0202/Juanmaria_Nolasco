@@ -59,12 +59,12 @@ $total_citas = $fila_citas['total_citas'];
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-md me-2"></i>inicio</div>
             <div class="list-group list-group-flush my-3">
-            <a href="./doctor.php" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  "><i
+            <a href="#" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
                 <a href="./recepcionista.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-users me-2"></i>recepcionista</a>
-                <a href="./pacientes.php"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="#"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-procedures me-2"></i>pacientes</a>
                 <a href="#"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-pills me-2"></i>contraseñas</a>

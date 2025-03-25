@@ -1,0 +1,272 @@
+
+        .top-bar {
+            background-color: #fff;
+            padding: 10px 0;
+        }
+        .navbar {
+            background-color: #007736;
+        }
+        .navbar .nav-link {
+            color: white !important;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.315), rgba(0, 0, 0, 0.178)), url('../imagenes/medium-shot-doctor-posing-studio.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 600px;
+            color: white;
+            padding: 100px 0;
+        }
+        .btn-read-more {
+            background-color: #007736;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+        }
+        /* Add this to your existing styles */
+ .services-section {
+    background-color: #f8f9fa91;
+ }
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+}
+
+.icon-wrapper i {
+    font-size: 30px;
+    color:#007736 !important;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+.timetable-card {
+    background-color: #17a2b8;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.timetable-card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.time {
+    color: #ffd700;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+}
+.ser{
+    text-align: center;
+}
+.medication-section {
+    background-color: #f8f9fa;
+}
+
+.med-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.med-card:hover {
+    transform: translateY(-5px);
+}
+
+.med-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007736;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.med-image {
+    height: 200px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.med-image img {
+    max-height: 160px;
+    object-fit: contain;
+}
+
+.med-content {
+    padding: 20px;
+}
+
+.med-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.med-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.med-price {
+    margin-bottom: 15px;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.new-price {
+    color: #007736;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007736;
+    border: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #005a28;
+}
+
+/* Badges diferentes colores */
+.med-badge.bg-danger {
+    background-color: #dc3545;
+}
+
+.med-badge.bg-success {
+    background-color: #28a745;
+}
+
+.med-badge.bg-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .med-card {
+        margin-bottom: 20px;
+    }
+}
+.footer {
+    background-color: #343a40;
+    color: white;
+}
+
+.footer a {
+    color: #adb5bd;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer h5 {
+    margin-bottom: 20px;
+}
+
+.footer p, .footer ul {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+.casos-exitosos {
+        background-color: #f8f9fa;
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        padding: 20px;
+    }
+    
+    .carousel-item {
+        padding: 20px;
+    }
+    .counter-box {
+            transition: transform 0.3s ease;
+        }
+        .counter-box:hover {
+            transform: translateY(-5px);
+        }
+        .counter {
+            font-weight: bold;
+            font-size: 2rem;
+        }

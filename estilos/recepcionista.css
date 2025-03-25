@@ -1,0 +1,76 @@
+
+
+
+        .filtros-estados {
+            margin-bottom: 20px;
+        }
+        .filtro-btn {
+            margin-right: 10px;
+            transition: transform 0.2s;
+        }
+        .filtro-btn:hover {
+            transform: scale(1.05);
+        }
+        .filtro-btn.activo {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .tabla-citas {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tabla-citas.loading {
+            opacity: 0.5;
+        }
+        tr {
+            transition: all 0.4s ease-out;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+        }
+        
+        .fade-out {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        /* Animación para los botones de filtro */
+        .filtro-btn {
+            animation: popIn 0.3s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Retraso en la animación de los botones */
+        .filtro-btn:nth-child(1) { animation-delay: 0.1s; }
+        .filtro-btn:nth-child(2) { animation-delay: 0.2s; }
+        .filtro-btn:nth-child(3) { animation-delay: 0.3s; }
+        .filtro-btn:nth-child(4) { animation-delay: 0.4s; }
+        .filtro-btn:nth-child(5) { animation-delay: 0.5s; }

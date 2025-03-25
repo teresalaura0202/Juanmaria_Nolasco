@@ -2,7 +2,7 @@
 $host = 'localhost';
 $usuario = 'root';
 $password = '';
-$base_datos = 'mango';
+$base_datos = 'clinica_medica';
 
 $conexion = mysqli_connect($host, $usuario, $password, $base_datos);
 

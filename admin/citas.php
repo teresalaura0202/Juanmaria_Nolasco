@@ -70,7 +70,7 @@ $total_citas = $fila_citas['total_citas'];
                         class="fas fa-pills me-2"></i>contraseñas</a>
                 <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text active  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>citas</a>
-                        <a href="./panel_casosEX.PHP"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
+                        <a href="#"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>Exitosos</a>
                 <a href="../login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a>

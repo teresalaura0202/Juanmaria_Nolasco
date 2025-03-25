@@ -1,6 +1,19 @@
 <?php
 include '../conexion.php'; // Asegúrate de que la conexión a la base de datos esté incluida
 
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['nombre'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Verificar si el rol del usuario es "director"
+if ($_SESSION['rol'] !== 'recepcionista') {
+    header("Location: ../login.php"); // Redirigir a una página de error o acceso denegado
+    exit;
+}
 // Consultar el total de doctores
 $paciente_seleccionado = null;
 if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
@@ -32,6 +45,9 @@ $total_citas = $fila_citas['total_citas'];
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="../estilos/citas.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Panel de Administración Responsivo Bootstrap 5</title>
    
 </head>
@@ -43,18 +59,18 @@ $total_citas = $fila_citas['total_citas'];
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-md me-2"></i>inicio</div>
             <div class="list-group list-group-flush my-3">
-                <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text "><i
+            <a href="./doctor.php" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
                 <a href="./recepcionista.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-users me-2"></i>recepcionista</a>
-                <a href="./pacientes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="./pacientes.php"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-procedures me-2"></i>pacientes</a>
-                <a href="./contraseñas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
+                <a href="#"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-pills me-2"></i>contraseñas</a>
-                <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text active fw-bold"><i
+                <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text active  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>citas</a>
-                        <a href="./panel_casosEX.PHP" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
+                        <a href="./panel_casosEX.PHP"onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>Exitosos</a>
                 <a href="../login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-sign-out-alt me-2"></i>Cerrar sesión</a>
@@ -472,6 +488,16 @@ $total_citas = $fila_citas['total_citas'];
         };
 </script>
    
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso Denegado',
+            text: 'No eres un recepcionisata.',
+            confirmButtonText: 'Entendido'
+        });
+    }
+</script>
 
 </body>
 

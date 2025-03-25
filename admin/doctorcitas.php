@@ -104,6 +104,7 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="../estilos/doctor.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Panel de Administración Responsivo Bootstrap 5</title>
 </head>
 
@@ -114,15 +115,21 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-md me-2"></i>inicio</div>
             <div class="list-group list-group-flush my-3">
-            <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text active "><i
+            <a href="./index.php" class="list-group-item list-group-item-action bg-transparent second-text  "><i
+            class="fas fa-user-md me-2"></i>inicio</a>
+           
+            <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text active  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
-              
+                        <a href="#" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+    <i class="fas fa-procedures me-2"></i>recepcionista
+</a>
+
                 <a href="./pacientes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-procedures me-2"></i>pacientes</a>
-              
-                <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
-                        class="fas fa-calendar-check me-2"></i>citas</a>
+                <a href="./contraseñas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
+                        class="fas fa-pills me-2"></i>contraseñas</a>
+               
                         <a href="./panel_casosEX.PHP" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>Exitosos</a>
                 <a href="../login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
@@ -163,47 +170,7 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
             </nav>
 
             <div class="container-fluid px-4">
-                <div class="row g-3 my-2">
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">720</h3>
-                                <p class="fs-5">pacientes</p>
-                            </div>
-                            <i class="fas fa-procedures fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">4920</h3>
-                                <p class="fs-5">doctores</p>
-                            </div>
-                            <i class="fas fa-user-md fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">3899</h3>
-                                <p class="fs-5">enfermeros</p>
-                            </div>
-                            <i class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 class="fs-2">25</h3>
-                                <p class="fs-5">citas</p>
-                            </div>
-                            <i class="fas fa-calendar-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <div class="container">
                     <div class="section-header mb-4">
@@ -287,6 +254,16 @@ $resultado_recetas = mysqli_query($conexion, $sql_recetas);
 
     function setCitaId(idCita) {
         document.getElementById('id_cita_modal').value = idCita;
+    }
+</script>
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso Denegado',
+            text: 'No eres un recepcionisata.',
+            confirmButtonText: 'Entendido'
+        });
     }
 </script>
 </body>

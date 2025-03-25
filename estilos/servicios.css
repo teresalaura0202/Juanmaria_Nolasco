@@ -22,6 +22,7 @@
 }
 
 .card:hover {
+    /* Color principal */
     transform: translateY(-10px); /* Efecto de elevación */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }

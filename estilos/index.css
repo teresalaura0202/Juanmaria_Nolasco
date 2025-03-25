@@ -270,3 +270,153 @@
             font-weight: bold;
             font-size: 2rem;
         }
+       
+           
+           /* Estilo para la barra superior */
+   .top-bar {
+       background-color: #34495e; /* Fondo oscuro */
+       padding: 10px 20px;
+       color: #ecf0f1; /* Color claro para el texto */
+       border-bottom: 2px solid #2980b9; /* Línea de separación debajo */
+       transition: all 0.3s ease; /* Transición suave para cualquier cambio */
+   }
+   
+   .top-bar:hover {
+       background-color: #2c3e50; /* Cambio de color de fondo al pasar el ratón */
+       border-bottom-color: #1abc9c; /* Cambio de color en la línea de separación */
+   }
+   
+   /* Estilo para el título */
+   .top-bar h2 {
+       font-size: 1.8rem; /* Tamaño de fuente más grande */
+       font-weight: 700;
+       letter-spacing: 1px; /* Espaciado entre letras */
+       animation: slideInLeft 0.8s ease-out; /* Animación para el título */
+   }
+   
+   @keyframes slideInLeft {
+       0% {
+           opacity: 0;
+           transform: translateX(-100%);
+       }
+       100% {
+           opacity: 1;
+           transform: translateX(0);
+       }
+   }
+   
+   /* Estilo para los botones y enlaces */
+   .top-bar a.btn {
+       text-decoration: none;
+       color: #fff;
+       font-weight: 600;
+       display: inline-flex;
+       align-items: center;
+       transition: all 0.3s ease;
+   }
+   
+   .top-bar a.btn:hover {
+       background-color: #1abc9c; /* Cambio de color en hover */
+       transform: translateY(-5px); /* Efecto de desplazamiento hacia arriba */
+   }
+   
+   .top-bar a.btn i {
+       margin-right: 10px; /* Separación entre íconos y texto */
+   }
+   
+   /* Estilo para los enlaces de texto */
+   .top-bar .me-3 {
+       font-size: 1rem;
+       color: #ecf0f1;
+       transition: color 0.3s ease, transform 0.3s ease;
+   }
+   
+   .top-bar .me-3:hover {
+       color: #3498db; /* Color azul al pasar el ratón */
+       transform: translateX(5px); /* Efecto de desplazamiento de texto */
+   }
+   
+   /* Estilo para el número de teléfono */
+   .top-bar .text-success {
+       font-size: 1.2rem;
+       font-weight: 600;
+       transition: color 0.3s ease, transform 0.3s ease;
+   }
+   
+   .top-bar .text-success:hover {
+       color: #16a085; /* Color verde más brillante al pasar el ratón */
+       transform: translateY(-3px); /* Efecto de desplazamiento hacia arriba */
+   }
+   
+              
+           /* Estilo para la barra de navegación */
+   
+   .nav-link {
+       color: #ecf0f1; /* Color de texto claro para los enlaces */
+       font-size: 1.1rem; /* Tamaño de texto mayor para hacerlo más legible */
+       font-weight: 500; /* Peso de fuente moderado */
+       transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para el color y transformación */
+       margin-right: 15px; /* Espaciado entre los enlaces */
+   }
+   
+   .nav-link:hover {
+       color: #3498db; /* Cambio de color de los enlaces al pasar el ratón */
+       transform: scale(1.1); /* Agrandar ligeramente el texto en hover */
+   }
+   
+   /* Estilo para el botón de la navbar */
+   .navbar-toggler {
+       border-color: #ecf0f1; /* Bordes blancos para el icono de la hamburguesa */
+   }
+   
+   .navbar-toggler-icon {
+       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='%23ecf0f1' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Color blanco para el icono */
+   }
+   
+   /* Animaciones para los enlaces al entrar */
+   .navbar-nav .nav-item {
+       opacity: 0;
+       transform: translateY(20px);
+       animation: fadeInUp 0.8s forwards;
+   }
+   
+   .navbar-nav .nav-item:nth-child(1) {
+       animation-delay: 0.2s;
+   }
+   
+   .navbar-nav .nav-item:nth-child(2) {
+       animation-delay: 0.4s;
+   }
+   
+   .navbar-nav .nav-item:nth-child(3) {
+       animation-delay: 0.6s;
+   }
+   
+   .navbar-nav .nav-item:nth-child(4) {
+       animation-delay: 0.8s;
+   }
+   
+   .navbar-nav .nav-item:nth-child(5) {
+       animation-delay: 1s;
+   }
+   
+   /* Animación de desvanecimiento y subida */
+   @keyframes fadeInUp {
+       0% {
+           opacity: 0;
+           transform: translateY(20px);
+       }
+       100% {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+   
+   /* Efecto para la navbar en dispositivos móviles */
+   @media (max-width: 768px) {
+       .navbar-toggler {
+           margin-left: auto; /* Alinea el ícono a la derecha */
+       }
+   }
+   
+  

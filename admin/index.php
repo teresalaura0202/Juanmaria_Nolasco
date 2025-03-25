@@ -1,6 +1,25 @@
 <?php
 include '../conexion.php'; // Asegúrate de que la conexión a la base de datos esté incluida
 
+
+
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['nombre'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Verificar si el rol del usuario es "director"
+if ($_SESSION['rol'] !== 'doctor') {
+    header("Location: ../login.php"); // Redirigir a una página de error o acceso denegado
+    exit;
+}
+
+// Si el usuario ha iniciado sesión y es director, continúa con la lógica de la página
+
+
 // Consultar el total de doctores
 $sql_doctores = "SELECT COUNT(*) as total_doctores FROM usuarios WHERE rol = 'doctor'"; // Contar solo los usuarios con rol de doctor
 $resultado_doctores = mysqli_query($conexion, $sql_doctores);
@@ -59,46 +78,9 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Panel de Administración Responsivo Bootstrap 5</title>
-    <style>
-        .table-container {
-            max-height: 400px; /* Altura máxima para el scroll */
-            overflow-y: auto; /* Habilitar scroll vertical */
-            border: 1px solid #dee2e6; /* Borde alrededor de la tabla */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-            background: white; /* Fondo blanco */
-        }
-        .table th, .table td {
-            vertical-align: middle; /* Alinear verticalmente el contenido */
-        }
-        .table thead th {
-            position: sticky; /* Fijar el encabezado */
-            top: 0; /* Posición en la parte superior */
-            background-color: white; /* Fondo blanco para el encabezado */
-            z-index: 10; /* Asegurarse de que esté por encima del contenido */
-        }
-        .chart-small {
-            max-width: 400px; /* Ancho máximo */
-            max-height: 200px; /* Altura máxima */
-            width: 100%; /* Ancho responsivo */
-            height: auto; /* Altura automática */
-        }
-        /* Fijar el sidebar */
-        #sidebar-wrapper {
-            position: fixed; /* Fijar el sidebar */
-            height: 100vh; /* Altura completa de la ventana */
-            overflow-y: auto; /* Habilitar scroll si el contenido del sidebar es largo */
-            z-index: 1000; /* Asegurar que esté por encima del contenido */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para el sidebar */
-        }
-
-        /* Ajustar el contenido principal para que no se superponga con el sidebar */
-        #page-content-wrapper {
-            margin-left: 250px; /* Ajustar este valor al ancho del sidebar */
-            width: calc(100% - 250px); /* Restar el ancho del sidebar */
-        }
-    </style>
+    <title>Panel </title>
+  <link rel="stylesheet" href="../estilos/admindex.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -108,17 +90,21 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-md me-2"></i>inicio</div>
             <div class="list-group list-group-flush my-3">
+            <a href="./index.php" class="list-group-item list-group-item-action bg-transparent second-text  active  "><i
+            class="fas fa-user-md me-2"></i>inicio</a>
+           
             <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
-                <a href="./recepcionista.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-users me-2"></i>recepcionista</a>
+                        <a href="#" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+    <i class="fas fa-procedures me-2"></i>recepcionista
+</a>
+
                 <a href="./pacientes.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-procedures me-2"></i>pacientes</a>
                 <a href="./contraseñas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-pills me-2"></i>contraseñas</a>
-                <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
-                        class="fas fa-calendar-check me-2"></i>citas</a>
+               
                         <a href="./panel_casosEX.PHP" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>Exitosos</a>
                 <a href="../login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
@@ -174,7 +160,7 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 class="fs-2"><?php echo $total_enfermeros; ?></h3>
-                                <p class="fs-5">enfermeros</p>
+                                <p class="fs-5">recepcionista</p>
                             </div>
                             <i class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
@@ -371,6 +357,16 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
             }
         });
     </script>
+    <script>
+    function mostrarAlerta() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso Denegado',
+            text: 'No eres un recepcionisata.',
+            confirmButtonText: 'Entendido'
+        });
+    }
+</script>
 </body>
 
 </html>

@@ -1,0 +1,232 @@
+
+/* Contenedor general */
+/* .container {
+  margin-top: 50px; /* Un poco de margen superior */
+
+
+/* Animación de entrada del título y subtítulo */
+.animated-header h2,
+.animated-header p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.animated-header h2 {
+  animation-delay: 0.2s;
+}
+.animated-header p {
+  animation-delay: 0.4s;
+}
+/* Animación de aparición de texto */
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+/* Título "Casos Exitosos" */
+.display-4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Efecto hover para el título */
+.display-4:hover {
+  color: #3498db; /* Cambiar color */
+  transform: scale(1.05); /* Aumentar tamaño */
+}
+
+/* Subtítulo con animación */
+.lead {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+/* Efecto de hover para el subtítulo */
+.lead:hover {
+  color: #95a5a6; /* Cambiar color del texto */
+  transform: translateY(-3px); /* Efecto de subida al pasar el mouse */
+}
+
+/* Contenedor de los elementos al pasar el ratón (sombra y elevación) */
+.text-center {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.text-center:hover {
+  transform: translateY(-10px); /* Subir ligeramente al pasar el mouse */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Agregar sombra suave */
+}
+
+/* Estilos adicionales para los textos de la caja */
+.text-muted {
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+.text-muted:hover {
+  color: #bdc3c7; /* Cambiar color del subtítulo */
+  font-size: 1.25rem; /* Aumentar tamaño de fuente al pasar el ratón */
+}
+
+/* Estilo de la caja de la sección */
+.animated-header {
+  background-color: #f4f6f8; /* Fondo suave */
+  padding: 50px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideInUp 1s forwards;
+  animation-delay: 0.6s;
+}
+/* Animación para la aparición del contenedor */
+@keyframes slideInUp {
+  0% {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+} */
+
+
+  /* Fondo oscuro con padding extra para más espacio */
+.footer {
+  background-color: #2c3e50;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+/* Títulos con sombra y color más claro */
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ecf0f1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Descripción y texto de contacto con un color más suave */
+.footer-text {
+  color: #bdc3c7;
+  line-height: 1.8;
+}
+
+/* Enlaces con efecto de transición suave */
+.footer-links .footer-link {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 5px 0;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links .footer-link:hover {
+  color: #1abc9c;
+  padding-left: 10px; /* Añadido efecto de deslizamiento */
+}
+
+/* Efecto hover sobre el footer */
+.footer:hover {
+  background-color: #34495e;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para el texto de copyright */
+.footer-copy {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+/* Iconos dentro del footer con animación */
+.footer i {
+  color: #1abc9c;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer i:hover {
+  color: #ecf0f1;
+}
+
+/* Animación de los elementos cuando aparecen */
+.footer .footer-title, .footer .footer-text, .footer .footer-link {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.footer .footer-title:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.footer .footer-text, .footer .footer-link {
+  animation-delay: 0.5s;
+}
+
+/* Animación keyframes */
+@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+/* Efecto de transición en el ícono */
+i {
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Agregar un rebote al texto */
+.display-4 {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-15px);
+  }
+}
+

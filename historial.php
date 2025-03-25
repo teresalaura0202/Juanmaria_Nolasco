@@ -265,7 +265,14 @@ if (isset($_SESSION['paciente_id'])) {
             <?php echo $error; ?>
         </div>
     <?php endif; ?>
-    
+
+    <button type="" class="btn-login">
+
+        <a href="./index.php" style='text-decoration :none;  color: #ffffff;'><i class="fas fa-sign-in-alt"></i>volver.</a>
+           
+        </button>
+        <hr>
+    <br>
     <form method="POST">
         <div class="input-group">
             <i class="fas fa-envelope"></i>
@@ -284,7 +291,7 @@ if (isset($_SESSION['paciente_id'])) {
         </button>
         
         <div class="forgot-password">
-            <a href="#"><i class="fas fa-key"></i> ¿Olvidaste tu contraseña?</a>
+            <a href="./contacto.php"><i class="fas fa-key"></i> ¿Olvidaste tu contraseña?</a>
         </div>
     </form>
 </div>
@@ -438,7 +445,7 @@ if (isset($_SESSION['paciente_id'])) {
                                         <?php if ($receta['prescripcion']): ?>
                                             <a href="imprimir_receta.php?id=<?php echo $receta['id_receta']; ?>" 
                                                class="btn btn-sm btn-primary">
-                                                <i class="fas fa-print"></i> Imprimir Receta
+                                               
                                             </a>
                                         <?php endif; ?>
                                     </div>
@@ -631,8 +638,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nombre']) && isset($_P
                 </div>
                 <div class="col-md-4">
                     <h5><i class="fas fa-phone me-2"></i>Contacto</h5>
-                    <p class="mb-0">Teléfono: (123) 456-7890<br>
-                    Email: contacto@clinica.com</p>
+                    <p class="mb-0">Teléfono: 222 456-7890<br>
+                    Email: manosunidas@clinica.com</p>
                 </div>
             </div>
             <div class="text-center mt-3">

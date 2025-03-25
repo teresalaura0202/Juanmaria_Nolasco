@@ -1,5 +1,21 @@
 <?php
+
+
 include '../conexion.php'; // Asegúrate de que la conexión a la base de datos esté incluida
+
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['nombre'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Verificar si el rol del usuario es "director"
+if ($_SESSION['rol'] !== 'doctor') {
+    header("Location: ../login.php"); // Redirigir a una página de error o acceso denegado
+    exit;
+}
 
 // Consultar el total de doctores
 $sql_doctores = "SELECT COUNT(*) as total_doctores FROM usuarios WHERE rol = 'doctor'"; // Contar solo los usuarios con rol de doctor
@@ -59,6 +75,9 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Panel de Administración Responsivo Bootstrap 5</title>
     <style>
         .table-container {
@@ -108,17 +127,20 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-md me-2"></i>inicio</div>
             <div class="list-group list-group-flush my-3">
+            <a href="./index.php" class="list-group-item list-group-item-action bg-transparent second-text   "><i
+            class="fas fa-user-md me-2"></i>inicio</a>
             <a href="./doctor.php" class="list-group-item list-group-item-action bg-transparent second-text  "><i
                         class="fas fa-user-md me-2"></i>doctores</a>
                 
-                <a href="./recepcionista.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-users me-2"></i>recepcionista</a>
-                <a href="./pacientes.php" class="list-group-item list-group-item-action bg-transparent second-text active fw-bold"><i
+                        <a href="#" onclick="mostrarAlerta();" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+    <i class="fas fa-procedures me-2"></i>recepcionista
+</a>
+
+                <a href="./pacientes.php" class="list-group-item list-group-item-action bg-transparent second-text active  fw-bold"><i
                         class="fas fa-procedures me-2"></i>pacientes</a>
                 <a href="./contraseñas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-pills me-2"></i>contraseñas</a>
-                <a href="./citas.php" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
-                        class="fas fa-calendar-check me-2"></i>citas</a>
+               
                         <a href="./panel_casosEX.PHP" class="list-group-item list-group-item-action bg-transparent second-text  fw-bold"><i
                         class="fas fa-calendar-check me-2"></i>Exitosos</a>
                 <a href="../login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
@@ -223,6 +245,17 @@ if (isset($_GET['paciente_id']) && is_numeric($_GET['paciente_id'])) {
 
      
     </script>
+    <script>
+    function mostrarAlerta() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso Denegado',
+            text: 'No eres un recepcionista.',
+            confirmButtonText: 'Entendido'
+        });
+    }
+</script>
+
 </body>
 
 </html>
